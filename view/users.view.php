@@ -18,6 +18,7 @@ include 'layouts/header.php';
           <th>Frist Name</th>
           <th>Last Name</th>
           <th>Email</th>
+          <th>Status</th>
           <th>Action</th>
           
         </tr>
@@ -29,15 +30,21 @@ include 'layouts/header.php';
           <td><?=$value['id'] ;?></td>
           <td>
             
-            <img src="uploads/profile/<?=$value['photo'] ;?>"  width='50' alt="">
+            <img src="uploads/profile/<?=$value['photo'] ;?>"  width="50" alt="">
         </td>
           <td><?=$value['fname'] ;?></td>
           <td><?=$value['lname'] ;?></td>
           <td><?=$value['email'] ;?></td>
+          <td><?=$value['status'] == 1 ? '<span class="badge text-bg-success">active</span>' : '<span class="badge text-bg-warning">deactive</span>';?></td>
           <td>
             <a href="edit.php?id=<?=$value['id'] ;?>" class='btn btn-sm btn-primary'>Edit</a>
-            <a href="#" class='btn btn-sm btn-success'>View</a>
-            <a href="#" class='btn btn-sm btn-danger'>Delete</a>
+            <a href="single.php?id=<?=$value['id'] ;?>" class='btn btn-sm btn-success'>View</a>
+            <a  href="delete.php?id=<?=$value['id'] ;?>" class='btn btn-sm btn-danger'>Delete</a>
+            <a  href="status.php?id=<?=$value['id'] ;?>" class='btn btn-sm <?=$value['status'] == 1 ? 'btn-warning' : 'btn-success'?>'>
+            <?=$value['status'] == 1 ? 'deactive' : 'active'?>
+         
+
+            </a>
             </td>
         </tr>
           <?php
