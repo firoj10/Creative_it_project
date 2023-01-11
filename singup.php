@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
 
   if($result){
  $s = "User sing up Successfully done";
-//  header( 'location:index.php' );
+
  
 }
 }

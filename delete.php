@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+if(!isset( $_SESSION['user'])){
+    header( 'location:login.php' ); 
+} 
+
 include 'db.php';
 $id = $_GET['id'];
 if(!(int)$id){

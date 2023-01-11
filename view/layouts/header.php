@@ -19,19 +19,41 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
-        <li class="nav-item">
+       
+        <?php
+        if(isset($_SESSION['user'])){
+          ?>
+           <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="users.php">All Users</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="singup.php">Sing Up</a>
+          <li class="nav-item dropdown">
+       <div class="dropdown-toggle" data-bs-toggle="dropdown" >
+       <img src="uploads/profile/<?=$_SESSION['user']['photo']?>"  width="30" 
+       class='rounded-circle' alt=''>
+       <span><?= $_SESSION['user']['fname'] ?></span>
+        </div>
+        <ul class='dropdown-menu'>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="logout.php">LogOut</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+        </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">LogOut</a>
-        </li>
-      </ul>
+        </div>
+        </div>
+        <?php
+        }else{
+          ?>
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="singup.php">Sing Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+            </li>
+          <?php
+        }
+        ?>
+      
+       
       
     </div>
   </div>

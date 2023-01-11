@@ -1,5 +1,15 @@
 
 <?php
+session_start();
+if(!isset( $_SESSION['user'])){
+    header( 'location:login.php' ); 
+}
+
+if(!isset( $_COOKIE['user_cookie'])){
+    header( 'location:logout.php' ); 
+}
+
+
 include 'db.php';
 $query = "SELECT id, fname, lname, email, photo, status FROM users ORDER BY id DESC";
 
@@ -9,12 +19,12 @@ if( mysqli_num_rows($result) > 0){
     $data = mysqli_fetch_all($result, true);
 }
 
-
-?>
-
+ 
 
 
 
-<?php
+
+
+
 include 'view/users.view.php';
 ?>

@@ -1,6 +1,11 @@
 
 <?php
 
+session_start();
+if(!isset( $_SESSION['user'])){
+    header( 'location:login.php' ); 
+}
+
 include 'db.php';
 // echo $_GET['id'];
 $id = $_GET['id'];

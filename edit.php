@@ -1,4 +1,14 @@
 <?php
+
+session_start();
+if(!isset( $_SESSION['user'])){
+    header( 'location:login.php' ); 
+}
+
+if(!isset( $_COOKIE['user_cookie'])){
+    header( 'location:logout.php' ); 
+}
+
 include 'db.php';
 // echo $_GET['id'];
 $id = $_GET['id'];
